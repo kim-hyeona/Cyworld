@@ -14,29 +14,56 @@
             <div class="divideLine"></div>
         </div>
         <div class="game__container">
-            <img src="./images/word.png">
             <div class="game__title">끝말잇기</div>
-            <div class="game__subtitle">제시어 : <span id="word">코드캠프</span></div>
+            <div class="game__subtitle">제시어 : <span id="word">사랑해</span></div>
             <div class="word__text">
                 <input id="myword" class="textbox" type="text" placeholder="단어를 입력하세요">
-                <button class="search" onclick="">입력</button>
+                <button class="search" onclick="startWord()">입력</button>
             </div>
             <div id="result" class="word__result">결과!</div>
         </div>
         <div class="game__container">
-            <img src="./images/lotto.png">
             <div class="game__title">LOTTO</div>
-            <div class="game__subtitle">버튼을 누르세요</div>
+            <div class="game__subtitle" onclick="lotto()">버튼을 누르세요</div>
             <div class="game__lotto__number">
-                <span>3</span>
-                <span>5</span>
-                <span>10</span>
-                <span>24</span>
-                <span>30</span>
-                <span>34</span>
+                3 5 10 24 30 34
             </div>
             <button class="wrapper__lotto__btn">Button</button>
         </div>
     </div>
+    <script>
+        let lottoNum = document.querySelectorAll('.game__lotto__number > span')
+        let lottoBtn = document.querySelector('.wrapper__lotto__btn')
+
+   
+        function lotto(){
+            const random = Math.floor(Math.random() * 99 + 1);
+            
+            lottoBtn.addEventListener("click",() =>{
+                lottoNum.innerText = {random}
+            })
+        }
+        lotto();
+
+        const startWord = () => {
+            let myword = document.getElementById('myword').value
+            let word = document.getElementById('word').innerText
+
+            let lastword = word[word.length - 1]
+            let firstword = myword[0]
+
+            if(lastword === firstword) {
+                document.getElementById('result').innerText = "승리했습니다!"
+                document.getElementById('word').innerText = myword
+                document.getElementById("myword").value= ""
+            }else{
+                document.getElementById('result').innerText = "땡!"
+                document.getElementById("myword").value= ""
+            }
+        }
+
+        
+        
+    </script>
 </body>
 </html>

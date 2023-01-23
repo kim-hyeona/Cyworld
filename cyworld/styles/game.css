@@ -101,6 +101,7 @@ html, body {
 .game__lotto__number {
     width: 130px;
     height: 21px;
+    line-height: 10px;
     background-color: #ffe400;
     border-radius: 8px;
     border: 1px solid black;
@@ -108,9 +109,10 @@ html, body {
     font-weight: 700;
     display: flex;
     justify-content: space-between;
-    padding: 5px 8px;
+    padding: 5px 25px;
     margin-bottom: 11px;
     margin-top: 10px;
+    text-align: center;
 }
 
 .wrapper__lotto__btn {
